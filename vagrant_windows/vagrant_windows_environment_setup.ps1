@@ -22,7 +22,7 @@ ssh-add .\sensor_transport_dev_team .\sensor_transport_team
 Pop-Location
 
 New-Item -ItemType Directory ..\.ssh
-Copy-Item Z:\known_hosts C:\Users\IEUser\.ssh\
+Copy-Item vagrant_launch_host\vagrant_windows\known_hosts C:\Users\IEUser\.ssh\
 
 & 'C:\Program Files\Git\bin\git.exe' config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
 & 'C:\Program Files\Git\bin\git.exe' clone git@github.com:mrgarybutler/sensor_transport_dev.git
@@ -39,5 +39,7 @@ pause
 & 'C:\HashiCorp\Vagrant\bin\vagrant.exe' plugin install vagrant-aws
 $connect_aws = (gci -recurse -Path C:\Users\IEUser\.vagrant.d\gems connect_aws.rb).FullName
 Copy-Item -Force '..\vagrant_launch_host\vagrant_windows\connect_aws.rb' $connect_aws
+Copy-Item '..\sensor_transport_team_certs\sensor_transport_team' rsync_files
+pause
 & 'C:\HashiCorp\Vagrant\bin\vagrant.exe' up st_zero
 # Restart-Computer -Confirm -Verbose
