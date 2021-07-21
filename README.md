@@ -23,4 +23,4 @@ This repository sets up the vagrant environment for various scenarios
 - Ensure your aws private key is accessible to the VM (e.g. copied directly or on Shared Folder)
 - Execute run_vagrant_windows_setup.bat
   - Accept the elevation prompt (Install vagrant, git, and start ssh-agent)
-  - 
+  - Enter the github certificate password at the prompt
